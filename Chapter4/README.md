@@ -13,7 +13,7 @@
 - 课时5：实例：自己手写一个完整的BP
     - 视频:[自己手写一个完整的BP]()
 - 课时6：作业：写一个AutoEncoder
-    - 视频:[写一个AutoEncoder]()
+    - 视频:[写一个AutoEncoder](https://github.com/huxiaoman7/learningdl/blob/master/Chapter4/autoencoder.ipynb)
 - 课时7：作业讲解：如何写一个AutoEncoder
     - 视频：[何写一个AutoEncoder]()
     - 课件：[autoencoder.ipynb]()
