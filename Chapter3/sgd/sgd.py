@@ -2,7 +2,7 @@
 # python gradient_descent.py
 
 # import the necessary packages
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 import numpy as np
 import argparse
@@ -23,8 +23,8 @@ ap.add_argument("-b", "--batch-size", type=int, default=32,
     help="size of SGD mini-batches")
 args = vars(ap.parse_args())
 
-(X, y) = make_blobs(n_samples=400, n_features=2, centers=2,
-    cluster_std=2.5, random_state=95)
+(X, y) = make_blobs(n_samples=250, n_features=2, centers=2,
+    cluster_std=1.05, random_state=20)
 X = np.c_[np.ones((X.shape[0])), X]
 
 print("[INFO] starting training...")
@@ -66,13 +66,14 @@ for i in np.random.choice(250, 10):
 	print("activation={:.4f}; predicted_label={}, true_label={}".format(
 		activation, label, y[i]))
 
-#plt.figure()
-#plt.scatter(X[:, 1], X[:, 2], marker="o", c=y)
-#plt.plot(X, Y, "r-")
+Y = (-W[0] - (W[1] * X)) / W[2]
+plt.figure()
+plt.scatter(X[:, 1], X[:, 2], marker="o", c=y)
+plt.plot(X, Y, "r-")
 
-#fig = plt.figure()
-#plt.plot(np.arange(0, args["epochs"]), lossHistory)
-#fig.suptitle("Training Loss")
-#plt.xlabel("Epoch #")
-#plt.ylabel("Loss")
-#plt.show()
+fig = plt.figure()
+plt.plot(np.arange(0, args["epochs"]), lossHistory)
+fig.suptitle("Training Loss")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss")
+plt.show()

@@ -2,7 +2,7 @@
 # python gradient_descent.py
 
 # import the necessary packages
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 import numpy as np
 import argparse
@@ -92,14 +92,14 @@ for i in np.random.choice(250, 10):
 Y = (-W[0] - (W[1] * X)) / W[2]
 
 # plot the original data along with our line of best fit
-#plt.figure()
-#plt.scatter(X[:, 1], X[:, 2], marker="o", c=y)
-#plt.plot(X, Y, "r-")
+plt.figure()
+plt.scatter(X[:, 1], X[:, 2], marker="o", c=y)
+plt.plot(X, Y, "r-")
 
 # construct a figure that plots the loss over time
-#fig = plt.figure()
-#plt.plot(np.arange(0, args["epochs"]), lossHistory)
-#fig.suptitle("Training Loss")
-#plt.xlabel("Epoch #")
-#plt.ylabel("Loss")
-#plt.show()
+fig = plt.figure()
+plt.plot(np.arange(0, args["epochs"]), lossHistory)
+fig.suptitle("Training Loss")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss")
+plt.show()
