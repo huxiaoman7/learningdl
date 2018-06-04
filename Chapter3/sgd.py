@@ -60,31 +60,31 @@ hallSSE = hallSSE.T# 重要，将所有的losses做一个转置。原因是矩�
 # 初始化a,b值
 a = 10.0
 b = -20.0
-fig = plt.figure(1, figsize=(12, 8))
-
-# 绘制图1的曲面
-ax = fig.add_subplot(2, 2, 1, projection='3d')
-ax.set_top_view()
-ax.plot_surface(ha, hb, hallSSE, rstride=2, cstride=2, cmap='rainbow')
-
-# 绘制图2的等高线图
-plt.subplot(2,2,2)
-ta = np.linspace(-20, 20, 100)
-tb = np.linspace(-20, 20, 100)
-plt.contourf(ha,hb,hallSSE,15,alpha=0.5,cmap=plt.cm.hot)
-C = plt.contour(ha,hb,hallSSE,15,colors='black')
-plt.clabel(C,inline=True)
-plt.xlabel('a')
-plt.ylabel('b')
-
-plt.ion() # iteration on
-
+#fig = plt.figure(1, figsize=(12, 8))
+#
+## 绘制图1的曲面
+#ax = fig.add_subplot(2, 2, 1, projection='3d')
+#ax.set_top_view()
+#ax.plot_surface(ha, hb, hallSSE, rstride=2, cstride=2, cmap='rainbow')
+#
+## 绘制图2的等高线图
+#plt.subplot(2,2,2)
+#ta = np.linspace(-20, 20, 100)
+#tb = np.linspace(-20, 20, 100)
+#plt.contourf(ha,hb,hallSSE,15,alpha=0.5,cmap=plt.cm.hot)
+#C = plt.contour(ha,hb,hallSSE,15,colors='black')
+#plt.clabel(C,inline=True)
+#plt.xlabel('a')
+#plt.ylabel('b')
+#
+#plt.ion() # iteration on
+#
 all_loss = []
 all_step = []
 last_a = a
 last_b = b
 step = 1
-while step in range(0,10):
+while step in range(0,100):
     loss = 0
     all_da = 0
     all_db = 0
@@ -98,25 +98,25 @@ while step in range(0,10):
     #loss = loss/len(x)
 
         # 绘制图1中的loss点
-        ax.scatter(a, b, loss, color='black')
-        # 绘制图2中的loss点
-        plt.subplot(2, 2, 2)
-        plt.scatter(a,b,s=5,color='blue')
-        plt.plot([last_a,a],[last_b,b],color='aqua')
-        # 绘制图3中的回归直线
-        plt.subplot(2, 2, 3)
-        plt.plot(x, y)
-        plt.plot(x, y, 'o')
-        x_ = np.linspace(0, 1, 2)
-        y_draw = a * x_ + b
-        plt.plot(x_, y_draw)
-        # 绘制图4的loss更新曲线
-        all_loss.append(loss)
-        all_step.append(step)
-        plt.subplot(2,2,4)
-        plt.plot(all_step,all_loss,color='orange')
-        plt.xlabel("step")
-        plt.ylabel("loss")
+#        ax.scatter(a, b, loss, color='black')
+#        # 绘制图2中的loss点
+#        plt.subplot(2, 2, 2)
+#        plt.scatter(a,b,s=5,color='blue')
+#        plt.plot([last_a,a],[last_b,b],color='aqua')
+#        # 绘制图3中的回归直线
+#        plt.subplot(2, 2, 3)
+#        plt.plot(x, y)
+#        plt.plot(x, y, 'o')
+#        x_ = np.linspace(0, 1, 2)
+#        y_draw = a * x_ + b
+#        plt.plot(x_, y_draw)
+#        # 绘制图4的loss更新曲线
+#        all_loss.append(loss)
+#        all_step.append(step)
+#        plt.subplot(2,2,4)
+#        plt.plot(all_step,all_loss,color='orange')
+#        plt.xlabel("step")
+#        plt.ylabel("loss")
 
         last_a = a
         last_b = b
@@ -130,5 +130,5 @@ while step in range(0,10):
             plt.show()
             plt.pause(0.01)
         step = step + 1
-plt.show()
-plt.pause(99999999999)
+#plt.show()
+#plt.pause(99999999999)

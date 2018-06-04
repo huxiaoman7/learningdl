@@ -105,7 +105,7 @@ for step in range(1,100):
     plt.plot(x, y, 'o')
     x_ = np.linspace(0, 1, 2)
     y_draw = a * x_ + b
-    plt.plot(x_, y_draw)
+    #plt.plot(x_, y_draw)
     # 绘制图4的loss更新曲线
     all_loss.append(loss)
     all_step.append(step)
@@ -118,7 +118,7 @@ for step in range(1,100):
     last_b = b
 ###
     #-- 参数更新
-    # print('a = %.3f,b = %.3f' % (a,b))
+    print('a = %.3f,b = %.3f' % (a,b))
 
     va = gamma * va+ rate*all_da
     vb = gamma * vb+ rate*all_db

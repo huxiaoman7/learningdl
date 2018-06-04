@@ -67,26 +67,26 @@ hallSSE = hallSSE.T# 重要，将所有的losses做一个转置。原因是矩�
 # 初始化a,b值
 a = 10.0
 b = -20.0
-fig = plt.figure(1, figsize=(12, 8))
-fig.suptitle('learning rate: %.2f method:momentum SGD'%(rate), fontsize=15)
-
-# 绘制图1的曲面
-ax = fig.add_subplot(2, 2, 1, projection='3d')
-ax.set_top_view()
-ax.plot_surface(ha, hb, hallSSE, rstride=2, cstride=2, cmap='rainbow')
-
-# 绘制图2的等高线图
-plt.subplot(2,2,2)
-ta = np.linspace(-20, 20, 100)
-tb = np.linspace(-20, 20, 100)
-plt.contourf(ha,hb,hallSSE,15,alpha=0.5,cmap=plt.cm.hot)
-C = plt.contour(ha,hb,hallSSE,15,colors='black')
-plt.clabel(C,inline=True)
-plt.xlabel('a')
-plt.ylabel('b')
-
-plt.ion() # iteration on
-
+#fig = plt.figure(1, figsize=(12, 8))
+#fig.suptitle('learning rate: %.2f method:momentum SGD'%(rate), fontsize=15)
+#
+## 绘制图1的曲面
+#ax = fig.add_subplot(2, 2, 1, projection='3d')
+#ax.set_top_view()
+#ax.plot_surface(ha, hb, hallSSE, rstride=2, cstride=2, cmap='rainbow')
+#
+## 绘制图2的等高线图
+#plt.subplot(2,2,2)
+#ta = np.linspace(-20, 20, 100)
+#tb = np.linspace(-20, 20, 100)
+#plt.contourf(ha,hb,hallSSE,15,alpha=0.5,cmap=plt.cm.hot)
+#C = plt.contour(ha,hb,hallSSE,15,colors='black')
+#plt.clabel(C,inline=True)
+#plt.xlabel('a')
+#plt.ylabel('b')
+#
+#plt.ion() # iteration on
+#
 all_loss = []
 all_step = []
 last_a = a
@@ -94,7 +94,7 @@ last_b = b
 va = 0
 vb = 0
 gamma = 0.9
-for step in range(1,100):
+for step in range(1,104):
     loss = 0
     all_da = 0
     all_db = 0
@@ -109,26 +109,26 @@ for step in range(1,100):
     loss = loss/len(x_new)
 
     # 绘制图1中的loss点
-    ax.scatter(a, b, loss, color='black')
-    # 绘制图2中的loss点
-    plt.subplot(2,2,2)
-    plt.scatter(a,b,s=5,color='blue')
-    plt.plot([last_a,a],[last_b,b],color='aqua')
-    # 绘制图3中的回归直线
-    plt.subplot(2, 2, 3)
-    plt.plot(x, y)
-    plt.plot(x, y, 'o')
+    #ax.scatter(a, b, loss, color='black')
+    ## 绘制图2中的loss点
+    #plt.subplot(2,2,2)
+    #plt.scatter(a,b,s=5,color='blue')
+    #plt.plot([last_a,a],[last_b,b],color='aqua')
+    ## 绘制图3中的回归直线
+    #plt.subplot(2, 2, 3)
+    #plt.plot(x, y)
+    #plt.plot(x, y, 'o')
     x_ = np.linspace(0, 1, 2)
     y_draw = a * x_ + b
-    plt.plot(x_, y_draw)
+    #plt.plot(x_, y_draw)
     # 绘制图4的loss更新曲线
     all_loss.append(loss)
     all_step.append(step)
-    plt.subplot(2,2,4)
-    plt.plot(all_step,all_loss,color='orange')
-    plt.xlabel("step")
-    plt.ylabel("loss")
-
+#    plt.subplot(2,2,4)
+#    plt.plot(all_step,all_loss,color='orange')
+#    plt.xlabel("step")
+#    plt.ylabel("loss")
+#
 
     # print('a = %.3f,b = %.3f' % (a,b))
     last_a = a
@@ -141,7 +141,7 @@ for step in range(1,100):
 
     if step%1 == 0:
         print("step: ", step, " loss: ", loss)
-        plt.show()
-        plt.pause(0.01)
-plt.show()
-plt.pause(99999999999)
+        #plt.show()
+        #plt.pause(0.01)
+#plt.show()
+#plt.pause(99999999999)
